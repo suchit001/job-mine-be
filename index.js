@@ -14,7 +14,9 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use(morgan('tiny'))
 
-
+app.get('/', async (req, res) => {
+    res.send('Hosted with ❤️ by a desperate student finding jobs')
+})
 app.get('/amazon', amazonHelper)
 app.get('/salesforce', salesforceHelper)
 app.get('/walmart', walmartHelper)
@@ -31,6 +33,6 @@ app.get('/getJobs', async (req, res) => {
     }
 })
 
-app.listen(3000, async () => {
-    console.log('server listening at 3000')
+app.listen(process.env.PORT || 10000, async () => {
+    console.log('server listening at', process.env.PORT || 10000)
 })
