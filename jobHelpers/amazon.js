@@ -3,14 +3,24 @@ const models = require('../models')
 // const Job = require('../models/Job')
 const { getAmazonConfig } = require('../configs/amazon')
 
-exports.amazonHelper = async (req, res) => {
+exports.amazonRouteHandler = async (req, res) => {
+    try {
+        await this.amazonHelper()
+        return res.status(200).json("Jobs fetched successfully")
+    } catch (err) {
+        return res.status(400).send(err)
+    }
+}
+
+exports.amazonHelper = async () => {
     try {
         const jobs = await getAmazonJobs()
         let formattedJobs = formatAmazonJob(jobs)
-        const backDate = Math.floor(Date.now() / 1000) - 60 * 60 * 60
+        const backDate = Math.floor(Date.now() / 1000) - 60 * 60 * 3
         formattedJobs = formattedJobs.filter((job) => Number(job["postCreatedDate"]) > backDate)
         if(formattedJobs.length == 0) {
-            return res.send("No jobs to update")
+            console.log("Amazon: NO jobs")
+            return
         }
         const operations = formattedJobs.map((job) => ({
             updateOne: {
@@ -20,10 +30,10 @@ exports.amazonHelper = async (req, res) => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        return res.status(200).json("Jobs fetched successfully")
+        console.log("Amazon: Processed")
     } catch (err) {
         console.log('Error while fetching amazon jobs', err)
-        return res.status(400).json('Error while fetching amazon jobs')
+        // return res.status(400).json('Error while fetching amazon jobs')
     }
 }
 

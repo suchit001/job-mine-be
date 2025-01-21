@@ -5,13 +5,23 @@ const { getWalmartConfig } = require('../configs/walmart')
 
 const WM_BASE_URL = "https://walmart.wd5.myworkdayjobs.com/en-US/WalmartExternal"
 
-exports.walmartHelper = async (req, res) => {
+exports.walmartRouteHandler = async (req, res) => {
+    try {
+        await this.walmartHelper()
+        return res.status(200).json("Jobs fetched successfully")
+    } catch (err) {
+        return res.status(400).send(err)
+    }
+}
+
+exports.walmartHelper = async () => {
     try {
         const jobs = await getWalmartJobs()
         let formattedJobs = formatWalmartJob(jobs)
         formattedJobs = formattedJobs.filter((job) => job["workdayPostDay"] == "Posted Today")
         if(formattedJobs.length == 0) {
-            return res.send("No jobs to update")
+            console.log("Walmart: NO jobs")
+            return
         }
         const operations = formattedJobs.map((job) => ({
             updateOne: {
@@ -21,11 +31,9 @@ exports.walmartHelper = async (req, res) => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        return res.status(200).json("Jobs fetched successfully")
-        // return res.status(200).json(formattedJobs)
+        console.log("Walmart: Processed")
     } catch (err) {
         console.log('Error found while processing walmart jobs', err)
-        return res.status(400).send(err)
     }
 }
 

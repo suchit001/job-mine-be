@@ -5,13 +5,23 @@ const { getSalesforceConfig } = require('../configs/salesforce')
 
 const SF_BASE_URL = "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site"
 
-exports.salesforceHelper = async (req, res) => {
+exports.salesforceRouteHandler = async (req, res) => {
+    try {
+        await this.salesforceHelper()
+        return res.status(200).json("Jobs fetched successfully")
+    } catch (err) {
+        return res.status(400).send(err)
+    }
+}
+
+exports.salesforceHelper = async () => {
     try {
         const jobs = await getSalesforceJobs()
         let formattedJobs = formatSalesforceJob(jobs)
         formattedJobs = formattedJobs.filter((job) => job["workdayPostDay"] == "Posted Today")
         if(formattedJobs.length == 0) {
-            return res.send("No jobs to update")
+            console.log("Salesforce: NO jobs")
+            return
         }
         const operations = formattedJobs.map((job) => ({
             updateOne: {
@@ -21,10 +31,10 @@ exports.salesforceHelper = async (req, res) => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        return res.status(200).json("Jobs fetched successfully")
+        console.log("Salesforce: Processed")
     } catch (err) {
         console.log('Error found while processing salesforce jobs', err)
-        return res.status(400).send(err)
+        // return res.status(400).send(err)
     }
 }
 

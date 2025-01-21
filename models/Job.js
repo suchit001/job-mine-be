@@ -5,8 +5,10 @@ const JobSchema = new mongoose.Schema({
     postUpdatedDate: Number,
     jobTitle: String,
     postCreatedDate: Number,
+    workdayPostDay: String,
     jobUrl: String,
     company: String,
+    read: { type: Boolean, default: false },
     createdAt: { type: Number, default: Math.floor(Date.now() / 1000) },
     updatedAt: { type: Number, default: Math.floor(Date.now() / 1000) }
 });
