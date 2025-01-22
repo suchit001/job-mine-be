@@ -11,6 +11,7 @@ const { walmartRouteHandler } = require('./jobHelpers/walmart')
 const { adobeRouteHandler } = require('./jobHelpers/adobe')
 const { fetchAllJobsHandler } = require('./jobHelpers/fetchAll')
 const { nvidiaRouteHandler } = require('./jobHelpers/nvidia')
+const { gicoRouteHandler } = require('./jobHelpers/gico')
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -26,11 +27,12 @@ app.get('/salesforce', salesforceRouteHandler)
 app.get('/walmart', walmartRouteHandler)
 app.get('/adobe', adobeRouteHandler)
 app.get('/nvidia', nvidiaRouteHandler)
+app.get('/gico', gicoRouteHandler)
 
 app.get('/getJobs', async (req, res) => {
     try {
-        const query = req.params.query
-        const page = req.params.page ? req.params.page:1
+        const query = req.query.query
+        const page = req.query.page ? req.query.page:1
         const jobs = await models.Job.find({'read': false}).sort({'createdAt': -1}).skip((page-1)*10).limit(10)
         return res.send(jobs)
     } catch (err) {
