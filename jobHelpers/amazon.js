@@ -17,7 +17,6 @@ exports.amazonHelper = async () => {
         const jobs = await getAmazonJobs()
         let formattedJobs = formatAmazonJob(jobs)
         const backDate = Math.floor(Date.now() / 1000) - (60 * 60 * 24)
-        console.log(new Date(backDate * 1000))
         formattedJobs = formattedJobs.filter((job) => (parseInt(job["postCreatedDate"], 10) > backDate))
         if(formattedJobs.length == 0) {
             console.log("Amazon: NO jobs")
@@ -40,7 +39,7 @@ exports.amazonHelper = async () => {
 
 getAmazonJobs = async () => {
     const promises = []
-    for (let i = 0; i <= 1; i++) {
+    for (let i = 0; i <= 3; i++) {
         const reqBody = getAmazonConfig(10*i, 10)
         promises.push(axios.post('https://www.amazon.jobs/api/jobs/search', reqBody).then((response) => response.data))
     }
@@ -56,7 +55,7 @@ formatAmazonJob = (jobs) => {
         "postUpdatedDate": job["fields"]["updatedDate"][0],
         "jobTitle": job["fields"]["title"][0],
         "postCreatedDate": job["fields"]["createdDate"][0],
-        "jobUrl": job["fields"]["urlNextStep"][0],
+        "jobUrl": job["fields"]["urlNextStep"][0].replace('https://account.amazon.com/jobs', 'https://www.amazon.jobs/en/jobs'),
         "company": "amazon"
     }))
 }

@@ -1,0 +1,107 @@
+[
+    {
+        "company": "adobe",
+        "base_url": "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced",
+        "base_api": "https://adobe.wd5.myworkdayjobs.com/wday/cxs/adobe/external_experienced/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "591af8b812fa10737af39db3d96eed9f"
+                ],
+                "locationCountry": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ]
+            }
+        }
+    }, {
+        "company": "citi",
+        "base_url": "https://citi.wd5.myworkdayjobs.com/en-US/2",
+        "base_api": "https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs",
+        "config": {
+            "appliedFacets": {
+                "Country_and_Jurisdiction": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ],
+                "jobFamilyGroup": [
+                    "e32326e1708d01575bddff0c120102c1"
+                ]
+            }
+        }
+    }, {
+        "company": "geico",
+        "base_url": "https://geico.wd1.myworkdayjobs.com/en-US/External",
+        "base_api": "https://geico.wd1.myworkdayjobs.com/wday/cxs/geico/External/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "a35ed0a458b310010910c29142fd0000",
+                    "da128ce5a1dc103e7c09aaa3fe312266"
+                ]
+            }
+        }
+    }, {
+        "company": "nvidia",
+        "base_url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite",
+        "base_api": "https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "0c40f6bd1d8f10ae43ffaefd46dc7e78"
+                ],
+                "locationHierarchy1": [
+                    "2fcb99c455831013ea52fb338f2932d8"
+                ]
+            }
+        }
+    }, {
+        "company": "salesforce",
+        "base_url": "https://salesforce.wd12.myworkdayjobs.com/en-US/External_Career_Site",
+        "base_api": "https://salesforce.wd12.myworkdayjobs.com/wday/cxs/salesforce/External_Career_Site/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "14fa3452ec7c1011f90d0002a2100000"
+                ],
+                "CF_-_REC_-_LRV_-_Job_Posting_Anchor_-_Country_from_Job_Posting_Location_Extended": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ]
+            }
+        }
+    }, {
+        "company": "usaa",
+        "base_url": "https://usaa.wd1.myworkdayjobs.com/en-US/USAAJOBSWD",
+        "base_api": "https://usaa.wd1.myworkdayjobs.com/wday/cxs/usaa/USAAJOBSWD/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "e283bdbc2d1210875c917eefd15f0bf7",
+                    "e283bdbc2d1210875c9178c49ddb0bf3",
+                    "e283bdbc2d1210875c919cc791cf0c0d"
+                ]
+            }
+        }
+    }, {
+        "company": "walmart",
+        "base_url": "https://walmart.wd5.myworkdayjobs.com/en-US/WalmartExternal",
+        "base_api": "https://walmart.wd5.myworkdayjobs.com/wday/cxs/walmart/WalmartExternal/jobs",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "e83ebdbd2a0a01e7e1477a8948e904c6",
+                    "e83ebdbd2a0a01af0185848948e94dc6",
+                    "e83ebdbd2a0a01cc71e67f8948e91ac6"
+                ],
+                "locationCountry": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ],
+                "jobFamily": [
+                    "e83ebdbd2a0a01e6af60e95a47e972c4",
+                    "e83ebdbd2a0a013cdffb345b47e99dc4",
+                    "24f96102afce1019026e1b0d04d90000",
+                    "e83ebdbd2a0a01da76781e5a47e902c4",
+                    "e83ebdbd2a0a017aa3a52b5b47e997c4"
+                ]
+            }
+        }
+    }
+]

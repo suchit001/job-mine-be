@@ -1,26 +1,26 @@
 const axios = require("axios")
 const models = require('../models')
 // const Job = require('../models/Job')
-const { getNvidiaConfig } = require('../configs/nvidia')
+const { getCitiConfig } = require('../configs/citi')
 
-const NVD_BASE_URL = "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite"
+const ADB_BASE_URL = "https://citi.wd5.myworkdayjobs.com/en-US/2"
 
-exports.nvidiaRouteHandler = async (req, res) => {
+exports.citiRouteHandler = async (req, res) => {
     try {
-        await this.nvidiaHelper()
+        await this.citiHelper()
         return res.status(200).json("Jobs fetched successfully")
     } catch (err) {
         return res.status(400).send(err)
     }
 }
 
-exports.nvidiaHelper = async () => {
+exports.citiHelper = async () => {
     try {
-        const jobs = await getNvidiaJobs()
-        let formattedJobs = formatNvidiaJob(jobs)
+        const jobs = await getCitiJobs()
+        let formattedJobs = formatCitiJob(jobs)
         formattedJobs = formattedJobs.filter((job) => job["workdayPostDay"] == "Posted Today")
         if(formattedJobs.length == 0) {
-            console.log("NVIDIA: NO jobs")
+            console.log("Citi: NO jobs")
             return
         }
         const operations = formattedJobs.map((job) => ({
@@ -31,37 +31,39 @@ exports.nvidiaHelper = async () => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        console.log("NVIDIA: Processed")
+        console.log("Citi: Processed")
+        // return res.status(200).json("Jobs fetched successfully")
     } catch (err) {
-        console.log('Error found while processing nvidia jobs', err)
+        console.log('Error found while processing citi jobs', err)
         // return res.status(400).send(err)
     }
 }
 
 
-getNvidiaJobs = async () => {
+
+getCitiJobs = async () => {
     try {
         const promises = []
         for (let i = 0; i <= 3; i++) {
-            const reqBody = getNvidiaConfig(20*i, 20)
-            promises.push(axios.post('https://nvidia.wd5.myworkdayjobs.com/wday/cxs/nvidia/NVIDIAExternalCareerSite/jobs', reqBody).then((response) => response.data))
+            const reqBody = getCitiConfig(20*i, 20)
+            promises.push(axios.post('https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs', reqBody).then((response) => response.data))
         }
         let jobs = await Promise.all(promises)
         jobs = jobs.map((job) => job["jobPostings"])
         jobs = jobs.flat()
         return jobs
     } catch(err) {
-        console.log('Error while fetching nvidia jobs', err)
+        console.log('Error while fetching citi jobs', err)
     }
 }
 
-formatNvidiaJob = (jobs) => {
+formatCitiJob = (jobs) => {
     return jobs.map((job) => ({
-        "jobId": "nvidia-"+job["bulletFields"][0],
+        "jobId": "citi-"+job["bulletFields"][0],
         "postUpdatedDate": null,
         "jobTitle": job["title"],
         "workdayPostDay": job["postedOn"],
-        "jobUrl": NVD_BASE_URL + job["externalPath"],
-        "company": "nvidia"
+        "jobUrl": ADB_BASE_URL + job["externalPath"],
+        "company": "citi"
     }))
 }

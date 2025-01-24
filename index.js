@@ -11,7 +11,10 @@ const { walmartRouteHandler } = require('./jobHelpers/walmart')
 const { adobeRouteHandler } = require('./jobHelpers/adobe')
 const { fetchAllJobsHandler } = require('./jobHelpers/fetchAll')
 const { nvidiaRouteHandler } = require('./jobHelpers/nvidia')
-const { gicoRouteHandler } = require('./jobHelpers/gico')
+const { geicoRouteHandler } = require('./jobHelpers/geico')
+const { citiRouteHandler } = require('./jobHelpers/citi')
+const { usaaRouteHandler } = require('./jobHelpers/usaa')
+const { uberRouteHandler } = require('./jobHelpers/uber')
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -27,7 +30,10 @@ app.get('/salesforce', salesforceRouteHandler)
 app.get('/walmart', walmartRouteHandler)
 app.get('/adobe', adobeRouteHandler)
 app.get('/nvidia', nvidiaRouteHandler)
-app.get('/gico', gicoRouteHandler)
+app.get('/geico', geicoRouteHandler)
+app.get('/citi', citiRouteHandler)
+app.get('/usaa', usaaRouteHandler)
+app.get('/uber', uberRouteHandler)
 
 app.get('/getJobs', async (req, res) => {
     try {

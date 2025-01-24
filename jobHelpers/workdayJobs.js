@@ -1,26 +1,27 @@
 const axios = require("axios")
 const models = require('../models')
-// const Job = require('../models/Job')
-const { getAdobeConfig } = require('../configs/adobe')
+const workdayConfig = require('../configs/workdayConfig.json')
+// const { workdayConfig } = require('../configs/workdayConfig')
 
-const ADB_BASE_URL = "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced"
 
-exports.adobeRouteHandler = async (req, res) => {
+exports.workDayHelper = async () => {
     try {
-        await this.adobeHelper()
-        return res.status(200).json("Jobs fetched successfully")
+        for await(let config of workdayConfig) {
+            await this.workDayCompanyHelper(config)
+        }
     } catch (err) {
-        return res.status(400).send(err)
+        return err
     }
 }
 
-exports.adobeHelper = async () => {
+
+exports.workDayCompanyHelper = async (config) => {
     try {
-        const jobs = await getAdobeJobs()
-        let formattedJobs = formatAdobeJob(jobs)
+        const jobs = await getWorkdayJobs(config)
+        let formattedJobs = formatWorkdayJob(jobs, config)
         formattedJobs = formattedJobs.filter((job) => job["workdayPostDay"] == "Posted Today")
         if(formattedJobs.length == 0) {
-            console.log("Adobe: NO jobs")
+            console.log("NO jobs")
             return
         }
         const operations = formattedJobs.map((job) => ({
@@ -31,22 +32,24 @@ exports.adobeHelper = async () => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        console.log("Adobe: Processed")
+        console.log("Processed")
         // return res.status(200).json("Jobs fetched successfully")
     } catch (err) {
-        console.log('Error found while processing adobe jobs', err)
+        console.log('Error found while processing jobs', err)
         // return res.status(400).send(err)
     }
 }
 
 
 
-getAdobeJobs = async () => {
+getWorkdayJobs = async (config) => {
     try {
         const promises = []
         for (let i = 0; i <= 3; i++) {
-            const reqBody = getAdobeConfig(20*i, 20)
-            promises.push(axios.post('https://adobe.wd5.myworkdayjobs.com/wday/cxs/adobe/external_experienced/jobs', reqBody).then((response) => response.data))
+            config["limit"] = 20
+            config["offset"] = 20*i
+            // const reqBody = getAdobeConfig(20*i, 20)
+            promises.push(axios.post(config['base_api'], config['config']).then((response) => response.data))
         }
         let jobs = await Promise.all(promises)
         jobs = jobs.map((job) => job["jobPostings"])
@@ -57,13 +60,13 @@ getAdobeJobs = async () => {
     }
 }
 
-formatAdobeJob = (jobs) => {
+formatWorkdayJob = (jobs, config) => {
     return jobs.map((job) => ({
-        "jobId": "adobe-"+job["bulletFields"][0],
+        "jobId": config["company"] + "-" +job["bulletFields"][0],
         "postUpdatedDate": null,
         "jobTitle": job["title"],
         "workdayPostDay": job["postedOn"],
-        "jobUrl": ADB_BASE_URL + job["externalPath"],
-        "company": "adobe"
+        "jobUrl": config["base_url"] + job["externalPath"],
+        "company": config["company"]
     }))
 }

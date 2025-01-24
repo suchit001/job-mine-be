@@ -9,8 +9,8 @@ exports.getAdobeConfig = (start, size, query="") => {
                 "bc33aa3152ec42d4995f4791a106ed09"
             ]
         },
-        "limit": 20,
-        "offset": 0,
+        "limit": size,
+        "offset": start,
         "searchText": ""
     }
 }
