@@ -15,6 +15,7 @@ const { geicoRouteHandler } = require('./jobHelpers/geico')
 const { citiRouteHandler } = require('./jobHelpers/citi')
 const { usaaRouteHandler } = require('./jobHelpers/usaa')
 const { uberRouteHandler } = require('./jobHelpers/uber')
+const { ashbyHelper } = require('./jobHelpers/ashbyJobs')
 
 app.use(cors())
 app.use(bodyParser.json())

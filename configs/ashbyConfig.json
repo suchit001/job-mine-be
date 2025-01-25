@@ -1,0 +1,13 @@
+[
+    {
+        "company": "ramp",
+        "base_api": "https://api.ashbyhq.com/posting-api/job-board/ramp",
+        "filters": ["Engineering", "Data"],
+        "base_url": "https://jobs.ashbyhq.com/ramp/"
+    }, {
+        "company": "snowflake",
+        "base_api": "https://api.ashbyhq.com/posting-api/job-board/snowflake",
+        "filters": ["Engineering"],
+        "base_url": "https://jobs.ashbyhq.com/snowflake/"
+    }
+]

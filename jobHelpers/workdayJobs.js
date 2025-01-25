@@ -7,6 +7,7 @@ const workdayConfig = require('../configs/workdayConfig.json')
 exports.workDayHelper = async () => {
     try {
         for await(let config of workdayConfig) {
+            console.log(config["company"])
             await this.workDayCompanyHelper(config)
         }
     } catch (err) {
