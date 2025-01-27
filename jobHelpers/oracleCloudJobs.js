@@ -19,7 +19,7 @@ exports.oracleCloudHelper = async () => {
 exports.oracleCloudCompanyHelper = async (config) => {
     try {
         const jobs = await getOracleCloudJobs(config)
-        const backDate = Math.floor(Date.now() / 1000) - (60 * 60 * 24)
+        const backDate = Math.floor(Date.now() / 1000) - (60 * 60 * 48)
         let formattedJobs = formatOracleCloudJob(jobs, config)
         formattedJobs = formattedJobs.filter((job) => job["postCreatedDate"] > backDate)
         if(formattedJobs.length == 0) {

@@ -3,5 +3,9 @@
         "company": "jpmc",
         "base_url": "https://jpmc.fa.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/requisitions/preview/",
         "base_api": "https://jpmc.fa.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.workLocation,requisitionList.otherWorkLocations,requisitionList.secondaryLocations,flexFieldsFacet.values,requisitionList.requisitionFlexFields&finder=findReqs;siteNumber=CX_1001,facetsList=LOCATIONS%3BWORK_LOCATIONS%3BWORKPLACE_TYPES%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=25,lastSelectedFacet=CATEGORIES,locationId=300000000289738,selectedCategoriesFacet=300000086152753%3B300049451194835%3B300000086249821,selectedPostingDatesFacet=30,sortBy=POSTING_DATES_DESC,offset=25"
+    }, {
+        "company": "goldman-sachs",
+        "base_url": "https://hdpc.fa.us2.oraclecloud.com/hcmUI/CandidateExperience/en/sites/LateralHiring/requisitions/preview/",
+        "base_api": "https://hdpc.fa.us2.oraclecloud.com/hcmRestApi/resources/latest/recruitingCEJobRequisitions?onlyData=true&expand=requisitionList.workLocation,requisitionList.otherWorkLocations,requisitionList.secondaryLocations,flexFieldsFacet.values,requisitionList.requisitionFlexFields&finder=findReqs;siteNumber=CX_3002,facetsList=LOCATIONS%3BWORK_LOCATIONS%3BWORKPLACE_TYPES%3BTITLES%3BCATEGORIES%3BORGANIZATIONS%3BPOSTING_DATES%3BFLEX_FIELDS,limit=25,lastSelectedFacet=AttributeChar7,selectedFlexFieldsFacets=%22AttributeChar8%7CEngineering%20Division%3BPlatform%20Solutions%22,selectedLocationsFacet=300000000229164,sortBy=POSTING_DATES_DESC,offset=25"
     }
 ]

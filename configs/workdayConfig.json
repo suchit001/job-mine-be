@@ -103,5 +103,49 @@
                 ]
             }
         }
+    }, {
+        "company": "yahoo",
+        "base_url": "https://ouryahoo.wd5.myworkdayjobs.com/en-US/careers",
+        "base_api": "https://ouryahoo.wd5.myworkdayjobs.com/wday/cxs/ouryahoo/careers/jobs",
+        "config": {
+            "appliedFacets": {
+                "locations": [
+                    "429c19fc6ff810015940b81d49a00000"
+                ],
+                "jobFamilyGroup": [
+                    "91f14896cbbe0150163e1d3fc7463fb2",
+                    "91f14896cbbe0172a9e4f13ec7462fb2"
+                ]
+            }
+        }
+    }, {
+        "company": "general",
+        "base_api": "https://generalmotors.wd5.myworkdayjobs.com/wday/cxs/generalmotors/Careers_GM/jobs",
+        "base_url": "https://generalmotors.wd5.myworkdayjobs.com/en-US/Careers_GM",
+        "config": {
+            "appliedFacets": {
+                "Location_Country": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ],
+                "jobFamilyGroup": [
+                    "81219c91208501dea617b5999c1b01d6",
+                    "5ce64061bbf21001e72608a46d250000"
+                ],
+                "hiringCompany": [
+                    "983c57f4d0d801dfde36f5e2b21d4293"
+                ]
+            }
+        }
+    }, {
+        "company": "pnc",
+        "base_api": "https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/External/jobs",
+        "base_url": "https://pnc.wd5.myworkdayjobs.com/en-US/External",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "36fb33790998013dcc7599d053078601"
+                ]
+            }
+        }
     }
 ]
