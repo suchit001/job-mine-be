@@ -137,13 +137,29 @@
             }
         }
     }, {
-        "company": "pnc",
-        "base_api": "https://pnc.wd5.myworkdayjobs.com/wday/cxs/pnc/External/jobs",
-        "base_url": "https://pnc.wd5.myworkdayjobs.com/en-US/External",
+        "company": "cibc",
+        "base_api": "https://cibc.wd3.myworkdayjobs.com/wday/cxs/cibc/search/jobs",
+        "base_url": "https://cibc.wd3.myworkdayjobs.com/en-US/search",
+        "config": {
+            "appliedFacets": {
+                "Country": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ],
+                "jobFamilyGroup": [
+                    "4bbe6c74e8a7011e314d36a881013310",
+                    "4bbe6c74e8a70126f29430a881012510",
+                    "4bbe6c74e8a7013edb3931a881012710"
+                ]
+            }
+        }
+    }, {
+        "company": "globus-medical",
+        "base_api": "https://globusmedical.wd5.myworkdayjobs.com/wday/cxs/globusmedical/GMED_Careers/jobs",
+        "base_url": "https://globusmedical.wd5.myworkdayjobs.com/en-US/GMED_Careers",
         "config": {
             "appliedFacets": {
                 "jobFamilyGroup": [
-                    "36fb33790998013dcc7599d053078601"
+                    "9ae3a33d098710010dd1cc269fe70000"
                 ]
             }
         }

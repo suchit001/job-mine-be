@@ -61,7 +61,8 @@ formatashbyJob = (jobs, config) => {
         "jobTitle": job["title"],
         "postCreatedDate": Math.floor((new Date(job["publishedAt"]))/1000),
         "jobUrl": config["base_url"] + job["id"],
-        "company": config["company"]
+        "company": config["company"],
+        "createdAt": Math.floor(Date.now() / 1000)
     }))
 }
 

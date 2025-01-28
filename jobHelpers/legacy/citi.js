@@ -1,26 +1,26 @@
 const axios = require("axios")
-const models = require('../models')
+const models = require('../../models')
 // const Job = require('../models/Job')
-const { getAdobeConfig } = require('../configs/adobe')
+const { getCitiConfig } = require('../../configs/citi')
 
-const ADB_BASE_URL = "https://adobe.wd5.myworkdayjobs.com/en-US/external_experienced"
+const ADB_BASE_URL = "https://citi.wd5.myworkdayjobs.com/en-US/2"
 
-exports.adobeRouteHandler = async (req, res) => {
+exports.citiRouteHandler = async (req, res) => {
     try {
-        await this.adobeHelper()
+        await this.citiHelper()
         return res.status(200).json("Jobs fetched successfully")
     } catch (err) {
         return res.status(400).send(err)
     }
 }
 
-exports.adobeHelper = async () => {
+exports.citiHelper = async () => {
     try {
-        const jobs = await getAdobeJobs()
-        let formattedJobs = formatAdobeJob(jobs)
+        const jobs = await getCitiJobs()
+        let formattedJobs = formatCitiJob(jobs)
         formattedJobs = formattedJobs.filter((job) => job["workdayPostDay"] == "Posted Today")
         if(formattedJobs.length == 0) {
-            console.log("Adobe: NO jobs")
+            console.log("Citi: NO jobs")
             return
         }
         const operations = formattedJobs.map((job) => ({
@@ -31,39 +31,39 @@ exports.adobeHelper = async () => {
             }
         }))
         await models.Job.bulkWrite(operations)
-        console.log("Adobe: Processed")
+        console.log("Citi: Processed")
         // return res.status(200).json("Jobs fetched successfully")
     } catch (err) {
-        console.log('Error found while processing adobe jobs', err)
+        console.log('Error found while processing citi jobs', err)
         // return res.status(400).send(err)
     }
 }
 
 
 
-getAdobeJobs = async () => {
+getCitiJobs = async () => {
     try {
         const promises = []
         for (let i = 0; i <= 3; i++) {
-            const reqBody = getAdobeConfig(20*i, 20)
-            promises.push(axios.post('https://adobe.wd5.myworkdayjobs.com/wday/cxs/adobe/external_experienced/jobs', reqBody).then((response) => response.data))
+            const reqBody = getCitiConfig(20*i, 20)
+            promises.push(axios.post('https://citi.wd5.myworkdayjobs.com/wday/cxs/citi/2/jobs', reqBody).then((response) => response.data))
         }
         let jobs = await Promise.all(promises)
         jobs = jobs.map((job) => job["jobPostings"])
         jobs = jobs.flat()
         return jobs
     } catch(err) {
-        console.log('Error while fetching adobe jobs', err)
+        console.log('Error while fetching citi jobs', err)
     }
 }
 
-formatAdobeJob = (jobs) => {
+formatCitiJob = (jobs) => {
     return jobs.map((job) => ({
-        "jobId": "adobe-"+job["bulletFields"][0],
+        "jobId": "citi-"+job["bulletFields"][0],
         "postUpdatedDate": null,
         "jobTitle": job["title"],
         "workdayPostDay": job["postedOn"],
         "jobUrl": ADB_BASE_URL + job["externalPath"],
-        "company": "adobe"
+        "company": "citi"
     }))
 }

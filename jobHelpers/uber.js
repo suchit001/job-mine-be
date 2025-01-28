@@ -16,7 +16,7 @@ exports.uberHelper = async () => {
     try {
         const jobs = await getUberJobs()
         let formattedJobs = formatUberJob(jobs)
-        const backDate = Math.floor(Date.now() / 1000) - (60 * 60 * 24 * 14)
+        const backDate = Math.floor(Date.now() / 1000) - (60 * 60 * 24 * 7)
         formattedJobs = formattedJobs.filter((job) => (parseInt(job["postCreatedDate"], 10) > backDate))
         if(formattedJobs.length == 0) {
             console.log("Uber: NO jobs")
@@ -60,6 +60,7 @@ formatUberJob = (jobs) => {
         "jobTitle": job["title"],
         "postCreatedDate": (new Date(job['creationDate']))/1000,
         "jobUrl": "https://www.uber.com/global/en/careers/list/" + job["id"],
-        "company": "uber"
+        "company": "uber",
+        "createdAt": Math.floor(Date.now() / 1000)
     }))
 }

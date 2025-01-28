@@ -5,17 +5,9 @@ const cors = require('cors')
 const morgan = require('morgan')
 const models = require('./models')
 
-const { amazonRouteHandler } = require('./jobHelpers/amazon')
-const { salesforceRouteHandler } = require('./jobHelpers/salesforce')
-const { walmartRouteHandler } = require('./jobHelpers/walmart')
-const { adobeRouteHandler } = require('./jobHelpers/adobe')
 const { fetchAllJobsHandler } = require('./jobHelpers/fetchAll')
-const { nvidiaRouteHandler } = require('./jobHelpers/nvidia')
-const { geicoRouteHandler } = require('./jobHelpers/geico')
-const { citiRouteHandler } = require('./jobHelpers/citi')
-const { usaaRouteHandler } = require('./jobHelpers/usaa')
-const { uberRouteHandler } = require('./jobHelpers/uber')
-const { ashbyHelper } = require('./jobHelpers/ashbyJobs')
+const { microsoftRouteHandler } = require('./jobHelpers/microsoft')
+
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -26,15 +18,7 @@ app.get('/', async (req, res) => {
 })
 
 app.get('/processAllJobs', fetchAllJobsHandler)
-app.get('/amazon', amazonRouteHandler)
-app.get('/salesforce', salesforceRouteHandler)
-app.get('/walmart', walmartRouteHandler)
-app.get('/adobe', adobeRouteHandler)
-app.get('/nvidia', nvidiaRouteHandler)
-app.get('/geico', geicoRouteHandler)
-app.get('/citi', citiRouteHandler)
-app.get('/usaa', usaaRouteHandler)
-app.get('/uber', uberRouteHandler)
+app.get('/microsoft', microsoftRouteHandler)
 
 app.get('/getJobs', async (req, res) => {
     try {
@@ -52,9 +36,9 @@ app.post('/read', async (req, res) => {
     try {
         const jobId = req.query.jobId
         const job = await models.Job.findOneAndUpdate({ 'jobId': jobId}, {
-            read: true
+            read: true,
+            updatedAt: Math.floor(new Date.now() / 1000)
         })
-        console.log(job)
         res.status(200).send('Read successfully')
     } catch (err) {
         console.log('Error while reading the job', err)

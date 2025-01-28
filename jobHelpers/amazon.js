@@ -56,6 +56,7 @@ formatAmazonJob = (jobs) => {
         "jobTitle": job["fields"]["title"][0],
         "postCreatedDate": job["fields"]["createdDate"][0],
         "jobUrl": job["fields"]["urlNextStep"][0].replace('https://account.amazon.com/jobs', 'https://www.amazon.jobs/en/jobs'),
-        "company": "amazon"
+        "company": "amazon",
+        "createdAt": Math.floor(Date.now() / 1000)
     }))
 }

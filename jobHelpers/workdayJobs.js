@@ -68,6 +68,7 @@ formatWorkdayJob = (jobs, config) => {
         "jobTitle": job["title"],
         "workdayPostDay": job["postedOn"],
         "jobUrl": config["base_url"] + job["externalPath"],
-        "company": config["company"]
+        "company": config["company"],
+        "createdAt": Math.floor(Date.now() / 1000)
     }))
 }
