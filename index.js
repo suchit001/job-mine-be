@@ -37,7 +37,7 @@ app.post('/read', async (req, res) => {
         const jobId = req.query.jobId
         const job = await models.Job.findOneAndUpdate({ 'jobId': jobId}, {
             read: true,
-            updatedAt: Math.floor(new Date.now() / 1000)
+            updatedAt: Math.floor(Date.now() / 1000)
         })
         res.status(200).send('Read successfully')
     } catch (err) {
