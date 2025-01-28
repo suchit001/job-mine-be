@@ -56,7 +56,7 @@ formatMicrosoftJob = (jobs) => {
         "jobId": "microsoft-"+job["jobId"],
         "jobTitle": job["title"],
         "postCreatedDate": (new Date(job['postingDate']))/1000,
-        "jobUrl": "https://jobs.careers.microsoft.com/global/en/apply?Job_id=" + jobs["jobId"],
+        "jobUrl": "https://jobs.careers.microsoft.com/global/en/apply?Job_id=" + job["jobId"],
         "company": "microsoft",
         "createdAt": Math.floor(Date.now() / 1000)
     }))
