@@ -7,7 +7,7 @@ const models = require('./models')
 
 const { fetchAllJobsHandler } = require('./jobHelpers/fetchAll')
 const { microsoftRouteHandler } = require('./jobHelpers/microsoft')
-
+const { kjGetJobs, kjReadJob } = require('./kjkelper')
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -19,6 +19,8 @@ app.get('/', async (req, res) => {
 
 app.get('/processAllJobs', fetchAllJobsHandler)
 app.get('/microsoft', microsoftRouteHandler)
+app.get('/kajol/getJobs', kjGetJobs)
+app.post('/kajol/read', kjReadJob)
 
 app.get('/getJobs', async (req, res) => {
     try {

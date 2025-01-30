@@ -9,6 +9,7 @@ const JobSchema = new mongoose.Schema({
     jobUrl: String,
     company: String,
     read: { type: Boolean, default: false },
+    kajol: { type: Boolean, default: false },
     createdAt: { type: Number, default: Math.floor(Date.now() / 1000) },
     updatedAt: { type: Number, default: Math.floor(Date.now() / 1000) }
 });
