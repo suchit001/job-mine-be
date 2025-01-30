@@ -6,8 +6,8 @@ exports.kjGetJobs = async (req, res) => {
     try {
         const query = req.query.query
         const page = req.query.page ? req.query.page:1
-        const jobs = await models.Job.find({kajol: false}).sort({'createdAt': -1}).skip((page-1)*10).limit(10)
-        console.log(jobs)
+        const jobs = await models.Job.find({kajol: false}).sort({'createdAt': -1}).skip((page-1)*10).limit(10)  
+        return res.send(jobs)
     } catch (err) {
         console.log('Error while fetching jobs', err)
         return res.status(400).send(err)
