@@ -46,11 +46,11 @@ exports.workDayCompanyHelper = async (config) => {
 getWorkdayJobs = async (config) => {
     try {
         const promises = []
-        for (let i = 0; i <= 3; i++) {
-            config["limit"] = 20
-            config["offset"] = 20*i
-            // const reqBody = getAdobeConfig(20*i, 20)
-            promises.push(axios.post(config['base_api'], config['config']).then((response) => response.data))
+        for (let i = 0; i <= 3; i+=1) {
+            const newConfig = config['config']
+            newConfig["limit"] = 20
+            newConfig["offset"] = 20*i
+            promises.push(axios.post(config['base_api'], newConfig).then((response) => response.data))
         }
         let jobs = await Promise.all(promises)
         jobs = jobs.map((job) => job["jobPostings"])
@@ -69,6 +69,6 @@ formatWorkdayJob = (jobs, config) => {
         "workdayPostDay": job["postedOn"],
         "jobUrl": config["base_url"] + job["externalPath"],
         "company": config["company"],
-        "createdAt": Math.floor(Date.now() / 1000)
+        // "createdAt": Math.floor(Date.now() / 1000)
     }))
 }

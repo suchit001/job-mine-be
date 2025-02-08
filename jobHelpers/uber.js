@@ -61,6 +61,6 @@ formatUberJob = (jobs) => {
         "postCreatedDate": (new Date(job['creationDate']))/1000,
         "jobUrl": "https://www.uber.com/global/en/careers/list/" + job["id"],
         "company": "uber",
-        "createdAt": Math.floor(Date.now() / 1000)
+        // "createdAt": Math.floor(Date.now() / 1000)
     }))
 }
