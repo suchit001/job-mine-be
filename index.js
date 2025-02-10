@@ -26,7 +26,8 @@ app.get('/getJobs', async (req, res) => {
     try {
         const query = req.query.query
         const page = req.query.page ? req.query.page:1
-        const jobs = await models.Job.find({'read': false}).sort({'createdAt': -1}).skip((page-1)*10).limit(10)
+        const jobs = await models.Job.find({'read': false}).sort({'createdAt': -1})
+        // const jobs = await models.Job.find({'read': false}).sort({'createdAt': -1}).skip((page-1)*10).limit(10)
         return res.send(jobs)
     } catch (err) {
         console.log('Error while fetching jobs', err)
