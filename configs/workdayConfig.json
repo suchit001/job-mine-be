@@ -163,5 +163,66 @@
                 ]
             }
         }
+    }, {
+        "company": "fidelity",
+        "base_api": "https://wd1.myworkdaysite.com/wday/cxs/fmr/FidelityCareers/jobs",
+        "base_url": "https://wd1.myworkdaysite.com/en-US/recruiting/fmr/FidelityCareers",
+        "config": {
+            "appliedFacets": {
+                "locationCountry": [
+                    "bc33aa3152ec42d4995f4791a106ed09"
+                ],
+                "jobFamilyGroup": [
+                    "e39fd413f80c0104eb5775256a997b12",
+                    "4c9bbf7088c401011719f359748d0000"
+                ]
+            }
+        }
+    }, {
+        "company": "discover",
+        "base_api": "https://discover.wd5.myworkdayjobs.com/wday/cxs/discover/Discover/jobs",
+        "base_url": "https://discover.wd5.myworkdayjobs.com/en-US/Discover",
+        "config": {
+            "appliedFacets": {
+                "locations": [
+                    "dd81500376e3100d308a6b7c6c334f55",
+                    "dd81500376e3100d308a6dcac9034f5a",
+                    "dd81500376e3100d308a725565eb4f64",
+                    "febd73641484109bf1faaa7e997a66c3",
+                    "dd81500376e3100d308a99d97cab4fb9",
+                    "96bf16fa269701eb4279010ddf93b1e3"
+                ],
+                "jobFamilyGroup": [
+                    "57d5b78c04cc0177e8c94349b0281a5b",
+                    "a79d99b763fa01bb186c073e47287154"
+                ]
+            }
+        }
+    }, {
+        "company": "asml",
+        "base_api": "https://asml.wd3.myworkdayjobs.com/wday/cxs/asml/ASMLEXT1/jobs",
+        "base_url": "https://discover.wd5.myworkdayjobs.com/en-US/Discover",
+        "config": {
+            "appliedFacets": {
+                "locations": [
+                    "4f25bf82e8451000f11e0b8942900000",
+                    "9d31b5b978021000f11edea15c370000",
+                    "4f25bf82e8451000f11cdae88c860000",
+                    "cc051a073cfe1000f11f2f7271c70000",
+                    "2b0ca4fa4f631000f11f84f44ad60000",
+                    "4f25bf82e8451000f11cae56f3ae0000",
+                    "cc051a073cfe1000f120477da6740000",
+                    "4f25bf82e8451000f11dc0f812980000",
+                    "9d31b5b978021000f11e9f0081330000",
+                    "4f25bf82e8451000f11bddf1e5a60000"
+                ],
+                "jobFamilyGroup": [
+                    "719a7319274f01014848718f5b8e0002",
+                    "719a7319274f0101484876606da70001",
+                    "719a7319274f0101484875c6316d0000",
+                    "719a7319274f01014848735dc84c0002"
+                ]
+            }
+        }
     }
 ]
