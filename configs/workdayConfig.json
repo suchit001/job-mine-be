@@ -201,7 +201,7 @@
     }, {
         "company": "asml",
         "base_api": "https://asml.wd3.myworkdayjobs.com/wday/cxs/asml/ASMLEXT1/jobs",
-        "base_url": "https://discover.wd5.myworkdayjobs.com/en-US/Discover",
+        "base_url": "https://asml.wd3.myworkdayjobs.com/en-US/ASMLEXT1",
         "config": {
             "appliedFacets": {
                 "locations": [
@@ -221,6 +221,58 @@
                     "719a7319274f0101484876606da70001",
                     "719a7319274f0101484875c6316d0000",
                     "719a7319274f01014848735dc84c0002"
+                ]
+            }
+        }
+    }, {
+        "company": "reuters",
+        "base_api": "https://thomsonreuters.wd5.myworkdayjobs.com/wday/cxs/thomsonreuters/External_Career_Site/jobs",
+        "base_url": "https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site",
+        "config": {
+            "appliedFacets": {
+                "appliedFacets": {
+                    "Location_Country": [
+                        "bc33aa3152ec42d4995f4791a106ed09"
+                    ],
+                    "jobFamilyGroup": [
+                        "45878602fca640ccb862953105224698",
+                        "1efb1a6360c4495c8288c5245f7f4461"
+                    ]
+                }
+            }
+        }
+    }, {
+        "company": "progressiv-leasing",
+        "base_api": "https://progleasing.wd5.myworkdayjobs.com/wday/cxs/progleasing/ProgLeasingCareers/jobs",
+        "base_url": "https://progleasing.wd5.myworkdayjobs.com/ProgLeasingCareers",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "27259d9f1ccb1000cbee4831de610000"
+                ]
+            }
+        }
+    }, {
+        "company": "blackrock",
+        "base_api": "https://blackrock.wd1.myworkdayjobs.com/wday/cxs/blackrock/BlackRock_Professional/jobs",
+        "base_url": "https://blackrock.wd1.myworkdayjobs.com/en-US/BlackRock_Professional",
+        "config": {
+            "appliedFacets": {
+                "jobFamilyGroup": [
+                    "131d7f8fcf9f01d4eb1540d863509421",
+                    "7c29ce3598461001f7505cfee2240000",
+                    "131d7f8fcf9f0169542b1dd863507c21"
+                ],
+                "locations": [
+                    "37e19281f5b71001121d78f9735b0000",
+                    "131d7f8fcf9f01c7ffcef756f750f1cc",
+                    "131d7f8fcf9f0117715d3a97f750edd0",
+                    "131d7f8fcf9f0139bfe20857f75005cd",
+                    "131d7f8fcf9f01c686272557f75028cd",
+                    "1b2a81e64d850131866fa0e4705e7379",
+                    "131d7f8fcf9f01bdbb30a157f750b4cd",
+                    "131d7f8fcf9f013718ebc657f750e1cd",
+                    "131d7f8fcf9f01332580df57f750ffcd"
                 ]
             }
         }
