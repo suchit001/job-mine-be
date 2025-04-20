@@ -50,6 +50,20 @@ app.post('/read', async (req, res) => {
     }
 })
 
+app.get('/markAllRead', async (req, res) => {
+    try {
+        return res.status(200).send('All Read successfully')
+        const job = await models.Job.updateMany({}, {
+            read: true,
+            kajol: true,
+            updatedAt: Math.floor(Date.now() / 1000)
+        })
+    } catch (err) {
+        console.log('Error while reading the job', err)
+        return res.status(400).send(err)
+    }
+})
+
 app.listen(process.env.PORT || 10000, async () => {
     console.log('server listening at', process.env.PORT || 10000)
 })

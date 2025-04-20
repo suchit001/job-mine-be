@@ -225,23 +225,6 @@
             }
         }
     }, {
-        "company": "reuters",
-        "base_api": "https://thomsonreuters.wd5.myworkdayjobs.com/wday/cxs/thomsonreuters/External_Career_Site/jobs",
-        "base_url": "https://thomsonreuters.wd5.myworkdayjobs.com/External_Career_Site",
-        "config": {
-            "appliedFacets": {
-                "appliedFacets": {
-                    "Location_Country": [
-                        "bc33aa3152ec42d4995f4791a106ed09"
-                    ],
-                    "jobFamilyGroup": [
-                        "45878602fca640ccb862953105224698",
-                        "1efb1a6360c4495c8288c5245f7f4461"
-                    ]
-                }
-            }
-        }
-    }, {
         "company": "progressiv-leasing",
         "base_api": "https://progleasing.wd5.myworkdayjobs.com/wday/cxs/progleasing/ProgLeasingCareers/jobs",
         "base_url": "https://progleasing.wd5.myworkdayjobs.com/ProgLeasingCareers",
