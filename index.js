@@ -8,6 +8,11 @@ const models = require('./models')
 const { fetchAllJobsHandler } = require('./jobHelpers/fetchAll')
 const { microsoftRouteHandler } = require('./jobHelpers/microsoft')
 const { kjGetJobs, kjReadJob, kjClearAll } = require('./kjkelper')
+const { salesforceAutoApply } = require('./appliers/salesforce')
+const { nvidiaAutoApply } = require('./appliers/nvidia')
+const { citiAutoApply } = require('./appliers/citi')
+const { walmartAutoApply } = require('./appliers/walmart')
+const { adobeAutoApply } = require('./appliers/adobe')
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -44,6 +49,35 @@ app.post('/read', async (req, res) => {
             updatedAt: Math.floor(Date.now() / 1000)
         })
         res.status(200).send('Read successfully')
+    } catch (err) {
+        console.log('Error while reading the job', err)
+        return res.status(400).send(err)
+    }
+})
+
+app.post('/autoApply', async (req, res) => {
+    try {
+        const jobId = req.query.jobId;
+        const job = await models.Job.findOne({ 'jobId': jobId});
+        if(job['company'] == 'salesforce') {
+            await salesforceAutoApply(job['jobUrl']);
+        } else if(job['company'] == 'nvidia') {
+            await nvidiaAutoApply(job['jobUrl']);
+        } else if(job['company'] == 'citi') {
+            await citiAutoApply(job['jobUrl']);
+        } else if(job['company'] == 'walmart') {
+            await walmartAutoApply(job['jobUrl']);
+        } else if(job['company'] == 'adobe') {
+            await adobeAutoApply(job['jobUrl']);
+        } else {
+            throw new Error('Auto apply doesnt exist');
+            // await salesforceAutoApply();
+        }
+        const readJob = await models.Job.findOneAndUpdate({ 'jobId': jobId}, {
+            read: true,
+            updatedAt: Math.floor(Date.now() / 1000)
+        })
+        res.status(200).send('Read successfully');
     } catch (err) {
         console.log('Error while reading the job', err)
         return res.status(400).send(err)
