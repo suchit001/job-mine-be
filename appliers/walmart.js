@@ -75,16 +75,16 @@ exports.walmartAutoApply = async (url) => {
         // Custom Questions
         // const actions = driver.actions({ async: true });
         
-        // primaryQuestionnaire--81fd384b8ff9100da1c59efc98970000
-
-        const q1 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2b3da5e40001'));
+        // primaryQuestionnaire--6053fc57425a101d610d2b3da5e40001
+        const q1 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c59efc98970000'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q1);
         await driver.sleep(1 * netSpeed);
         await q1.click();
         await q1.sendKeys("Yes");
         await q1.sendKeys(Key.ENTER);
         
-        const q2 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2b3da5e40004'));
+        // primaryQuestionnaire--6053fc57425a101d610d2b3da5e40004
+        const q2 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c59f962c710002'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q2);
         await driver.sleep(1 * netSpeed);
         await q2.click();
@@ -92,73 +92,75 @@ exports.walmartAutoApply = async (url) => {
         await q2.sendKeys(Key.ENTER);
         
         await driver.sleep(1 * netSpeed);
-        const q3 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2bd793200000'));
+        // primaryQuestionnaire--6053fc57425a101d610d2bd793200000
+        const q3 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c59f962c710005'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q3);
         await driver.sleep(1 * netSpeed);
         // await q3.click();
         await q3.clear();
         await q3.sendKeys("+17162923634");
         // await q3.sendKeys(Key.ENTER);
-
-        const q4 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2bd793200001'));
+        // primaryQuestionnaire--6053fc57425a101d610d2bd793200001
+        const q4 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c59f962c710006'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q4);
         await driver.sleep(1 * netSpeed);
         await q4.click();
         await q4.sendKeys("Yes");
         await q4.sendKeys(Key.ENTER);
-
-        const q5 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2bd793200004'));
+        // primaryQuestionnaire--6053fc57425a101d610d2bd793200004
+        const q5 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a02f9e070002'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q5);
         await driver.sleep(1 * netSpeed);
         await q5.click();
         await q5.sendKeys("18 years of age and Over");
         await q5.sendKeys(Key.ENTER);
-
-        const q6 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2bd793200008'));
+        // primaryQuestionnaire--6053fc57425a101d610d2bd793200008
+        const q6 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a02f9e070006'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q6);
         await driver.sleep(1 * netSpeed);
         await q6.click();
         await q6.sendKeys("Have never been an employee of Walmart Inc or any of its subsidiaries");
         await q6.sendKeys(Key.ENTER);
-
-        const q7 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2c71804f0006'));
+        // primaryQuestionnaire--6053fc57425a101d610d2c71804f0006
+        const q7 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a0c91b350003'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q7);
         await driver.sleep(1 * netSpeed);
         await q7.click();
         await q7.sendKeys("Yes");
         await q7.sendKeys(Key.ENTER);
-
-        const q8 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2c71804f0009'));
+        // primaryQuestionnaire--6053fc57425a101d610d2c71804f0009
+        const q8 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a0c91b350006'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q8);
         await driver.sleep(1 * netSpeed);
         await q8.click();
         await q8.sendKeys("Yes");
         await q8.sendKeys(Key.ENTER);
+        await driver.sleep(1.5 * netSpeed);
 
-        await driver.sleep(1 * netSpeed);
-        const q9 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2d0b730f0002'));
+        // primaryQuestionnaire--6053fc57425a101d610d2d0b730f0002await 
+        const q9 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a0c91b350008'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q9);
         await driver.sleep(1 * netSpeed);
         await q9.click();
         await q9.sendKeys("OPT/CPT/J-1");
         await q9.sendKeys(Key.ENTER);
-
-        const q10 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2da55acd0003'));
+        // primaryQuestionnaire--6053fc57425a101d610d2da55acd0003
+        const q10 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a1fc00f40000'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q10);
         await driver.sleep(1 * netSpeed);
         await q10.click();
         await q10.sendKeys("No");
         await q10.sendKeys(Key.ENTER);
-
-        const q11 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2ed909ba0003'));
+        // primaryQuestionnaire--6053fc57425a101d610d2ed909ba0003
+        const q11 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a29571910006'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q11);
         await driver.sleep(1 * netSpeed);
         await q11.click();
         await q11.sendKeys("No");
         await q11.sendKeys(Key.ENTER);
 
-    
-        const q12 = await driver.findElement(By.id('primaryQuestionnaire--6053fc57425a101d610d2ed909ba0009'));
+        // primaryQuestionnaire--6053fc57425a101d610d2ed909ba0009    
+        const q12 = await driver.findElement(By.id('primaryQuestionnaire--81fd384b8ff9100da1c5a32ede760003'));
         await driver.executeScript("arguments[0].scrollIntoView({ behavior: 'smooth', block: 'center' });", q12);
         await driver.sleep(1 * netSpeed);
         await q12.click();
@@ -220,7 +222,6 @@ exports.walmartAutoApply = async (url) => {
         await driver.sleep(5 * netSpeed);
 
         console.log('Execution complete');
-        await driver.sleep(3 * netSpeed)
         await driver.quit();
     } catch (err) {
         console.log('Error occured while applying to job', err);

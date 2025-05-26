@@ -67,6 +67,7 @@ formatOracleCloudJob = (jobs, config) => {
         "postCreatedDate": (new Date(job["PostedDate"]))/1000,
         "jobUrl": config["base_url"] + job["Id"],
         "company": config["company"],
-        // "createdAt": Math.floor(Date.now() / 1000)
+        "createdAt": Math.floor(Date.now() / 1000),
+        "updatedAt": Math.floor(Date.now() / 1000)
     }))
 }

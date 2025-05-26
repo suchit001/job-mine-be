@@ -1,0 +1,57 @@
+{
+    "walmart": [
+        {
+            "type":"select",
+            "id":"primaryQuestionnaire--81fd384b8ff9100da1c59efc98970000",
+            "value":"Yes"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2b3da5e40001",
+            "value":"Yes"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2b3da5e40004",
+            "value":"Opt-In to receive text messages from Walmart"
+        }, {
+            "type":"text",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2bd793200000",
+            "value":"+17162923634"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2bd793200001",
+            "value":"Yes"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2bd793200004",
+            "value":"18 years of age and Over"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2bd793200008",
+            "value":"Have never been an employee of Walmart Inc or any of its subsidiaries"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2c71804f0006",
+            "value":"Yes"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2c71804f0009",
+            "value":"Yes"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2d0b730f0002",
+            "value":"OPT/CPT/J-1"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2da55acd0003",
+            "value":"No"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2ed909ba0003",
+            "value":"No"
+        }, {
+            "type":"select",
+            "id":"primaryQuestionnaire--6053fc57425a101d610d2ed909ba0009",
+            "value":"No"
+        }
+    ]
+}

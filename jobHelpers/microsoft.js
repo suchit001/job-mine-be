@@ -58,7 +58,8 @@ formatMicrosoftJob = (jobs) => {
         "postCreatedDate": (new Date(job['postingDate']))/1000,
         "jobUrl": "https://jobs.careers.microsoft.com/global/en/job/" + job["jobId"],
         "company": "microsoft",
-        // "createdAt": Math.floor(Date.now() / 1000)
+        "createdAt": Math.floor(Date.now() / 1000),
+        "updatedAt": Math.floor(Date.now() / 1000)
     }))
 }
 
